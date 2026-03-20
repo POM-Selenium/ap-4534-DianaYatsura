@@ -1,0 +1,186 @@
+:root {
+    --bg-color: #282a36;
+    --surface-color: #343746;
+    --primary-purple: #bd93f9;
+    --secondary-purple: #9580ff;
+    --text-color: #f8f8f2;
+    --white: #ffffff;
+    --error-red: #ff5555;
+    --success-green: #50fa7b;
+}
+
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Consolas', 'Monaco', 'Segoe UI', monospace;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+
+nav {
+    background-color: var(--surface-color);
+    padding: 1rem;
+    border-radius: 8px;
+    border-bottom: 2px solid var(--primary-purple);
+    margin-bottom: 20px;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-purple);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--secondary-purple);
+    text-shadow: 0 0 8px var(--primary-purple);
+}
+
+
+button, .btn {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--primary-purple);
+    border: 1px solid var(--primary-purple);
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+    text-align: center;
+}
+
+
+button:hover, .btn:hover {
+    background-color: var(--primary-purple);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var(--primary-purple);
+}
+
+
+.btn-edit {
+    color: var(--success-green) !important;
+    border-color: var(--success-green) !important;
+}
+
+.btn-edit:hover {
+    background-color: var(--success-green) !important;
+    color: var(--bg-color) !important;
+    box-shadow: 0 0 10px var(--success-green) !important;
+}
+
+
+.btn-delete {
+    color: var(--error-red) !important;
+    border-color: var(--error-red) !important;
+}
+
+.btn-delete:hover {
+    background-color: var(--error-red) !important;
+    color: var(--white) !important;
+    box-shadow: 0 0 10px var(--error-red) !important;
+}
+
+
+.messages {
+    list-style: none;
+    padding: 0;
+}
+
+.messages li {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    border-left: 5px solid var(--primary-purple);
+}
+
+.messages li.success { border-left-color: var(--success-green); }
+.messages li.error { border-left-color: var(--error-red); }
+.messages li.warning { border-left-color: #ffb86c; }
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--bg-color);
+}
+
+th {
+    background-color: var(--surface-color) !important;
+    color: var(--primary-purple) !important;
+    text-align: left;
+    padding: 12px;
+    border-bottom: 2px solid var(--primary-purple);
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #44475a;
+}
+
+tr:hover { background-color: #383a59; }
+
+
+.main-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--surface-color);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input[type="text"], input[type="password"], input[type="email"],
+input[type="datetime-local"], input[type="number"], .form-control {
+    background-color: var(--bg-color) !important;
+    border: 1px solid var(--primary-purple) !important;
+    color: var(--text-color) !important;
+    padding: 8px;
+    border-radius: 4px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:focus {
+    box-shadow: 0 0 5px var(--primary-purple);
+}
+
+input::placeholder {
+    color: #6272a4 !important;
+    opacity: 1;
+}
+
+.text-muted {
+    color: #6272a4 !important;
+    font-size: 0.8rem;
+}
+
+
+.filter-light .form-control {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}All Users{% endblock %}
+
+{% block content %}
+<h2>All Users</h2>
+
+<table class="users-table">
+    <thead>
+        <tr>
+            {% if user.role >= 1 %}
+                <th>Email</th>
+            {% endif %}
+            <th>Full Name</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for u in users %}
+        <tr>
+            {% if user.role >= 1 %}
+                <td>{{ u.email }}</td>
+            {% endif %}
+
+            <td>{{ u.first_name }} {{ u.last_name }}</td>
+
+            <td>{{ u.get_role_name }}</td>
+
+            <td class="actions-cell">
+                <a href="{% url 'user:detail' u.id %}">View Profile</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="{% if user.role >= 1 %}4{% else %}3{% endif %}" class="no-data">
+                No users found.
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="navigation-links">
+    <a href="/">← Back to Home</a>
+</div>
+{% endblock %}

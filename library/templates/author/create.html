@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if edit_mode %}Edit Author{% else %}Add Author{% endif %}{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <h2>{% if edit_mode %}Edit Author: {{ form.instance.surname }}{% else %}Add New Author{% endif %}</h2>
+
+    <form method="POST" novalidate class="custom-form">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div class="alert-error">
+                {% for error in form.non_field_errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <div class="error-text">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-save">
+                {% if edit_mode %}Update Author{% else %}Save Author{% endif %}
+            </button>
+            <a href="{% url 'author:index' %}" class="btn-link">Back to list</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
